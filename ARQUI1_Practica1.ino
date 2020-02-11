@@ -58,7 +58,53 @@ void loop() {
   }
   else
   {
+    move_enemies();
+    colision();
     //juego
   }
+  delay(1000); // delay de 1000 ms, cada segundo se actualizara
 
+}
+
+
+void colision()
+{
+  //chequeo si el vehiculo a colisionado
+}
+
+void move_enemies()
+{
+  //movimiento, vamos a preguntar desde las columnas
+  for(int a =15; a>-1;a--)
+  {
+    for(int b=0; b<8;b++)
+    {
+      if(matriz[b][a]==2)
+      {
+        if(a==15)
+        {
+          punteo += 1;
+          if(matriz[b-1][a]==2 || matriz[b+1][a]==2)
+          {
+            matriz[b-1][a] =0;
+            matriz[b][a] =0;
+            matriz[b+1][a] =0;
+          }
+          else
+          {
+            matriz[b-1][a-1] =0;
+            matriz[b][a-1] =0;
+            matriz[b+1][a-1] =0;
+            matriz[b][a] = 0;
+          }
+        }
+        else
+        {
+          matriz[b][a] = 0;
+          matriz[b][a+1] = 2;
+        }
+        
+      }
+    }
+  }
 }
