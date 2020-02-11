@@ -3,6 +3,7 @@ int matriz[8][16];
 int matriz1[8][15];
 int punteo;
 int pausa;
+int fin;
 /*
  * 
  * Se inicia con la posicion inicial del carro, en la matriz, luego se parsearan y crearan vehiculos aleatorios
@@ -34,6 +35,7 @@ void setup() {
 
   punteo=0;
   pausa=1;
+  fin = 0;
   for(int a=0;a<8;a++)
   {
     for(int b=0; b<16;b++)
@@ -51,16 +53,25 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if(pausa)
+  if(pausa==1)
   {
     //letras
     
   }
   else
   {
-    move_enemies();
-    colision();
-    //juego
+    if(fin==1)
+    {
+      //mostrar punteo
+    }
+    else
+    {
+      //juego
+      move_enemies();
+      colision();
+      
+    }
+    
   }
   delay(1000); // delay de 1000 ms, cada segundo se actualizara
 
@@ -70,6 +81,18 @@ void loop() {
 void colision()
 {
   //chequeo si el vehiculo a colisionado
+  for(int a=0;a<8;a++)
+  {
+    for(int b=0; b<16;b++)
+    {
+      if(matriz[a][b]==2)
+      {
+        if(matriz[a][b+1] == 1)fin=1;
+      }
+      if(fin ==1)break;
+    }
+    if(fin==1)break;
+  }
 }
 
 void move_enemies()
