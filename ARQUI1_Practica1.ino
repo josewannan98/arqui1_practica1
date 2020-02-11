@@ -4,6 +4,7 @@ int matriz1[8][15];
 int punteo;
 int pausa;
 int fin;
+int contador;
 /*
  * 
  * Se inicia con la posicion inicial del carro, en la matriz, luego se parsearan y crearan vehiculos aleatorios
@@ -66,6 +67,7 @@ void loop() {
     }
     else
     {
+      move_jugador();
       //juego
       move_enemies();
       colision();
@@ -73,7 +75,7 @@ void loop() {
     }
     
   }
-  delay(1000); // delay de 1000 ms, cada segundo se actualizara
+  delay(500); // delay de 500 ms, cada segundo se actualizara, se llevara un contador que marcara la velocidad de los obstaculos o de la velocidad de las letras
 
 }
 
