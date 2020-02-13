@@ -419,12 +419,17 @@ int slider_val;  // POTENCIOMETRO
 int slide_scroll_speed;   //VELOCIADA DEL POTENCIOMETRO
 int scrollSpeed;    // VELOCIDAD A LA QUE ENTRA 
  
-textEffect_t scrollEffect = PA_SCROLL_LEFT;// DIRECCION A LA QUE INICIA EL TEXTO
-textPosition_t scrollAlign = PA_LEFT;  // DIRECCION PARA DONDE VA EL TEXTO
+textEffect_t scrollEffect = PA_SCROLL_DOWN;// DIRECCION A LA QUE INICIA EL TEXTO
+textPosition_t scrollAlign = PA_CENTER;  // DIRECCION PARA DONDE VA EL TEXTO
 int scrollPause = 0; // TIEMPO DE ESPERA DESPUES QUE TERMINA EL TEXTO
 
-#define  BUF_SIZE  75  // MAXIMO DE CARACTERES
-char curMessage[BUF_SIZE] = { "PRACTICA1-GRUPO7-SECCTONA" };  // En lo que cambia de estado
+#define  BUF_SIZE  25  // MAXIMO DE CARACTERES
+char curMessage[BUF_SIZE] = { "G7-SECCIONA-PT1" };  // En lo que cambia de estado
+//char curMessage[BUF_SIZE] = { "R" };  // En lo que cambia de estado
+//char curMessage[BUF_SIZE] = { "U" };  // En lo que cambia de estado
+//char curMessage[BUF_SIZE] = { "P" };  // En lo que cambia de estado
+//char curMessage[BUF_SIZE] = { "O" };  // En lo que cambia de estado
+//char curMessage[BUF_SIZE] = { "VII" };  // En lo que cambia de estado
 
 
 //BOTONES
@@ -602,14 +607,14 @@ void loop() {
           }
 
           if (flag == 0) {
-            scrollEffect = PA_SCROLL_RIGHT;
+            scrollEffect = PA_SCROLL_UP;
             P.setTextEffect(scrollEffect, scrollEffect);
             slide_scroll_speed = map(slider_val, 1023, 0, 400, 15);
             P.setSpeed(400 - slide_scroll_speed);
             delay(400 - slide_scroll_speed);
           }
           if (flag == 1) {
-            scrollEffect = PA_SCROLL_LEFT;
+            scrollEffect = PA_SCROLL_DOWN;
             P.setTextEffect(scrollEffect, scrollEffect);
             slide_scroll_speed = map(slider_val, 1023, 0, 400, 15);
             P.setSpeed(slide_scroll_speed);
@@ -652,7 +657,7 @@ void loop() {
           }
 
           if (flag == 0) {
-            scrollEffect = PA_SCROLL_RIGHT;
+            scrollEffect = PA_SCROLL_UP;
             P.setTextEffect(scrollEffect, scrollEffect);
             slide_scroll_speed = map(slider_val, 1023, 0, 400, 15);
             P.setSpeed(400 - slide_scroll_speed);
@@ -669,7 +674,7 @@ void loop() {
             }
           }
           if (flag == 1) {
-            scrollEffect = PA_SCROLL_LEFT;
+            scrollEffect = PA_SCROLL_DOWN;
             P.setTextEffect(scrollEffect, scrollEffect);
             slide_scroll_speed = map(slider_val, 1023, 0, 400, 15);
             P.setSpeed(slide_scroll_speed);
@@ -792,7 +797,7 @@ void loop() {
 
 
           if (flag == 1) {
-            scrollEffect = PA_SCROLL_LEFT;
+            scrollEffect = PA_SCROLL_DOWN;
             P.setTextEffect(scrollEffect, scrollEffect);
             slide_scroll_speed = map(slider_val, 1023, 0, 400, 15);
             P.setSpeed(slide_scroll_speed);
@@ -820,7 +825,7 @@ void loop() {
           contadorInicio = contadorInicio + 1;
         } else {
           clearLeds();
-          scrollEffect = PA_SCROLL_LEFT;
+          scrollEffect = PA_SCROLL_DOWN;
           P.setTextEffect(scrollEffect, scrollEffect);
           slide_scroll_speed = map(slider_val, 1023, 0, 400, 15);
           P.setSpeed(slide_scroll_speed);
