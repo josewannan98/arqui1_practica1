@@ -13,6 +13,9 @@ int max_enemies = 3;
 int enemies_appear = 0;
 int num_aleatorio = 0;
 int cont =0;
+int velocidad_appear=4; //inicial
+int seg = 10; // cada 10 segundos aumenta el nivel de velocidad
+//velocidad limite a 2
 
 /* 12 para el DIN, 11 para el CLK, 10 para el CS y el 1 se refiere a la asignacion de la matriz*/ 
  
@@ -77,19 +80,21 @@ void loop()
       move_enemies();
       escritura();
       colision();
-      if (cont >2)
+      if (cont >velocidad_appear)
       {
         send_enemies();
         cont =0;
       }
       cont++;
-      
-      
-    }
-    
+      if(seg==0)
+      {
+         if(velocidad_appear>1) velocidad_appear -= 1;
+         seg = 10;
+      }
+     
+      seg--;
+    } 
   }
-  
- 
 }
 void send_enemies()
 {
