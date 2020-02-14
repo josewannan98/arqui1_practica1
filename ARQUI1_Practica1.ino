@@ -4,7 +4,8 @@
 LedControl lc=LedControl(12,11,10,1); // Los numeros se refieren a que pin de ARDUINO tienes en cada uno de los terminales
 
 int matriz[8][16];
-int matriz1[8][15];
+int matriz1[8][16];
+int matriz2[8][16]
 int punteo;
 int pausa;
 int fin;
@@ -34,6 +35,8 @@ void setup()
     for(int b=0; b<16;b++)
     {
       matriz[a][b] = 0;
+      matriz1[a][b] = 0;
+      matriz2[a][b] = 0;
     }
   }
   //inicial posicion del jugador
@@ -42,9 +45,7 @@ void setup()
   matriz[5][15] = 1;
   matriz[4][14] = 1;
   lc.shutdown(0,false);
- 
   lc.setIntensity(0,8);// La valores estan entre 1 y 15 
- 
   lc.clearDisplay(0);
  
 }
@@ -95,6 +96,10 @@ void loop()
       seg--;
     } 
   }
+}
+void escritura_punteo()
+{
+  
 }
 void send_enemies()
 {
@@ -169,7 +174,7 @@ void move_enemies()
       {
         if(a==15)
         {
-          punteo += 1;
+          punteo += 5;
           enemies_appear -= 1;
           if(matriz[b-1][a]==2 || matriz[b+1][a]==2)
           {
